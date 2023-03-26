@@ -17,25 +17,6 @@ jobs:
               libglu1-mesa-dev \
               libglew-dev \
               xorg-dev
-      - run: pip install git+https://github.com/yunshengtian/neat-python@2762ab630838520ca6c03a866e8a158f592b0370 
-      - run: pip install git+https://github.com/yunshengtian/GPyOpt@5fc1188ffdefea9a3bc7964a9414d4922603e904
-      - run: pip install glfw==2.5.0
-      - run: pip install GPy==1.10.0
-      - run: pip install gym==0.19.0
-      - run: pip install h5py==3.6.0
-      - run: pip install imageio==2.14.1
-      - run: pip install matplotlib==3.5.1
-      - run: pip install numpy==1.21.5
-      - run: pip install opencv-python==4.5.5.62
-      - run: pip install opencv-python==4.5.5.62
-      - run: pip install Pillow==9.0.0
-      - run: pip install pybind11==2.9.0
-      - run: pip install pygifsicle==1.0.5
-      - run: pip install PyOpenGL==3.1.5
-      - run: pip install PyOpenGL-accelerate==3.1.5
-      - run: pip install stable-baselines3==1.4.0
-      - run: pip install torch==1.10.2
-      - run: pip install ttkbootstrap==1.5.1
-      - run: pip install typing==3.7.4.3
-      - run: python setup.py install
+      - run: pip install .
+      - run: pip install -r requirements.txt
       - run: python -m evogym
