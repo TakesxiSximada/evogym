@@ -17,6 +17,8 @@ jobs:
               libglu1-mesa-dev \
               libglew-dev \
               xorg-dev
+      - run: pip install git+git://github.com/yunshengtian/neat-python.git@2762ab630838520ca6c03a866e8a158f592b0370 
+      - run: pip install git+git://github.com/yunshengtian/GPyOpt.git@5fc1188ffdefea9a3bc7964a9414d4922603e904
       - run: pip install glfw==2.5.0
       - run: pip install GPy==1.10.0
       - run: pip install gym==0.19.0
@@ -35,7 +37,5 @@ jobs:
       - run: pip install torch==1.10.2
       - run: pip install ttkbootstrap==1.5.1
       - run: pip install typing==3.7.4.3
-      - run: pip install git+git://github.com/yunshengtian/neat-python@2762ab630838520ca6c03a866e8a158f592b0370 
-      - run: pip install git+git://github.com/yunshengtian/GPyOpt@5fc1188ffdefea9a3bc7964a9414d4922603e904
       - run: python setup.py install
       - run: python -m evogym
