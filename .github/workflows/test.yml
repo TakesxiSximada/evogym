@@ -12,8 +12,7 @@ jobs:
       - run: |
           sudo apt-get install -y \
             cmake \
-            xorg-dev \
-            libglew-dev 
+            xorg-dev
       - run: pip install .
         env:        
           GLEW_INCLUDE_DIRS: evogym/simulator/externals/glew/include
