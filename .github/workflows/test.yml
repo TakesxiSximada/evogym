@@ -17,6 +17,6 @@ jobs:
               libglu1-mesa-dev \
               libglew-dev \
               xorg-dev
-      - run: pip install .
       - run: pip install -r requirements.txt
+      - run: pip install -e .
       - run: python -m evogym
