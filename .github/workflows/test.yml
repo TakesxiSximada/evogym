@@ -20,9 +20,9 @@ jobs:
           # xorg-dev 
           # libglu1-mesa-dev 
           # libglew-dev 
-      - run: cmake --version
+      # - run: cmake --version
       # - run: pip install -r requirements.txt
       - run: python setup.py install
-        env:        
-          GLEW_INCLUDE_DIRS: evogym/simulator/externals/glew/include
-          GLEW_LIBRARIES: evogym/simulator/externals/glew
+        # env:        
+        #   GLEW_INCLUDE_DIRS: evogym/simulator/externals/glew/include
+        #   GLEW_LIBRARIES: evogym/simulator/externals/glew
