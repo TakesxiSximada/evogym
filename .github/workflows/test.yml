@@ -12,6 +12,7 @@ jobs:
       - run: |
           sudo apt-get install -y \
             cmake \
+            xorg-dev \
             libglew-dev 
       - run: pip install .
         env:        
