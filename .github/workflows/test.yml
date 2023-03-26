@@ -13,12 +13,13 @@ jobs:
         with:
           python-version: '3.8'       
       - run: |
-          sudo apt-get install -y xorg-dev libglu1-mesa-dev
-          # xorg-dev \
+          sudo apt-get install -y xorg-dev libglu1-mesa-dev 
+          # xorg-dev 
+          # libglu1-mesa-dev 
           # libglew-dev 
       - run: cmake --version
-        
-      - run: pip install .
-        env:        
-          GLEW_INCLUDE_DIRS: evogym/simulator/externals/glew/include
-          GLEW_LIBRARIES: evogym/simulator/externals/glew
+      - run: pip install -r requirements.txt
+      - run: python setup.py install
+        # env:        
+        #   GLEW_INCLUDE_DIRS: evogym/simulator/externals/glew/include
+        #   GLEW_LIBRARIES: evogym/simulator/externals/glew
