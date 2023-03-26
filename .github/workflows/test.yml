@@ -18,3 +18,4 @@ jobs:
               libglew-dev \
               xorg-dev
       - run: python setup.py install
+      - run: python -m evogym
