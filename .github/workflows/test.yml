@@ -18,7 +18,7 @@ jobs:
           submodules: true
       - uses: actions/setup-python@v4
         with:
-          python-version: "3.8"
+          python-version: '3.8'
       - name: Install deb dependencies
         run: sudo apt-get install -y xorg-dev libglu1-mesa-dev libglew-dev
       - name: Install python dependencies
@@ -27,7 +27,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: ~/.cache/pip
-          key: wheel-cachel-${{ hashFiles("requirements.txt") }}
+          key: wheel-cache-${{ hashFiles('requirements.txt') }}
       - name: Install evolution gym
         run: pip install -e .
       - name: Run test
