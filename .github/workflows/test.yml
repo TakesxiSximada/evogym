@@ -9,7 +9,10 @@ jobs:
       - uses: actions/checkout@v3
         with:
           submodules: true
-      - run: sudo apt-get install -y xorg-dev libglu1-mesa-dev libglew-dev cmake xauth xvfb gifsicle
+      - run: |
+          sudo apt-get install -y \
+            cmake \
+            libglew-dev 
       - run: pip install .
         env:        
           GLEW_INCLUDE_DIRS: evogym/simulator/externals/glew/include
