@@ -13,7 +13,10 @@ jobs:
         with:
           python-version: '3.8'       
       - run: |
-          sudo apt-get install -y xorg-dev libglu1-mesa-dev 
+          sudo apt-get install -y \
+              xorg-dev \
+              libglu1-mesa-dev \
+              libglew-dev 
           # xorg-dev 
           # libglu1-mesa-dev 
           # libglew-dev 
