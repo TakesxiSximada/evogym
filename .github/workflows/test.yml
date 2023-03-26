@@ -10,11 +10,11 @@ jobs:
         with:
           submodules: true
       - run: |
-          sudo apt-get install -y \
-            xorg-dev \
-            libglew-dev 
+          sudo apt-get install -y xorg-dev libglu1-mesa-dev
+          # xorg-dev \
+          # libglew-dev 
       - run: cmake --version
       - run: pip install .
-        # env:        
-        #   GLEW_INCLUDE_DIRS: evogym/simulator/externals/glew/include
-        #   GLEW_LIBRARIES: evogym/simulator/externals/glew
+        env:        
+          GLEW_INCLUDE_DIRS: evogym/simulator/externals/glew/include
+          GLEW_LIBRARIES: evogym/simulator/externals/glew
