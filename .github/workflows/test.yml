@@ -1,6 +1,13 @@
 name: Testing
 
-on: push
+on: [push, pull_request]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   build:
@@ -12,11 +19,11 @@ jobs:
       - uses: actions/setup-python@v4
         with:
           python-version: '3.8'
-      - run: |
-          sudo apt-get install -y \
-              libglu1-mesa-dev \
-              libglew-dev \
-              xorg-dev
-      - run: pip install -r requirements.txt
-      - run: pip install -e .
-      - run: python -c 'import evogym; print(f"{evogym.__name__} was loaded.")'
+      - name: Install deb dependencies
+        run: sudo apt-get install -y xorg-dev libglu1-mesa-dev libglew-dev
+      - name: Install python dependencies
+        run: pip install -r requirements.txt
+      - name: Install evolution gym
+        run: pip install -e .
+      - name: Run test
+        run: python -c 'import evogym; print(f"{evogym.__name__} was loaded.")'
