@@ -38,4 +38,4 @@ jobs:
       - name: Install evolution gym
         run: pip install -e .
       - name: Run test
-        run: python -c 'import evogym; print(f"{evogym.__name__} was loaded.")'
+        run: python -m unittest tests/test_render.py
