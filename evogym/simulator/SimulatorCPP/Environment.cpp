@@ -262,7 +262,7 @@ bool Environment::revert_to_snapshot(long int sim_time) {
 	return true;
 }
 
-Ref <MatrixXd> Environment::get_pos_at_time(long int sim_time) {
+RefMatrixXd Environment::get_pos_at_time(long int sim_time) {
 	
 	if (history.count(sim_time) <= 0) {
 		Matrix <double, 2, Dynamic> empty;
@@ -273,7 +273,7 @@ Ref <MatrixXd> Environment::get_pos_at_time(long int sim_time) {
 
 	return history[sim_time].points_pos;
 }
-Ref <MatrixXd> Environment::get_vel_at_time(long int sim_time) {
+RefMatrixXd Environment::get_vel_at_time(long int sim_time) {
 
 	if (history.count(sim_time) <= 0) {
 		Matrix <double, 2, Dynamic> empty;
@@ -285,8 +285,7 @@ Ref <MatrixXd> Environment::get_vel_at_time(long int sim_time) {
 	return history[sim_time].points_vel;
 }
 
-Ref <MatrixXd> Environment::object_pos_at_time(long int sim_time, string object_name) {
-
+RefMatrixXd Environment::object_pos_at_time(long int sim_time, string object_name) {
 	if (history.count(sim_time) <= 0 || object_name_to_index.count(object_name) <= 0) {
 		Matrix <double, 2, Dynamic> empty;
 		empty.resize(2, 4);
@@ -300,7 +299,7 @@ Ref <MatrixXd> Environment::object_pos_at_time(long int sim_time, string object_
 	return history[sim_time].points_pos(Eigen::all, Eigen::seq(min_index, max_index));
 
 }
-Ref <MatrixXd> Environment::object_vel_at_time(long int sim_time, string object_name) {
+Eigen::Matrix<double, 2, Eigen::Dynamic> Environment::object_vel_at_time(long int sim_time, string object_name) {
 
 	if (history.count(sim_time) <= 0 || object_name_to_index.count(object_name) <= 0) {
 		Matrix <double, 2, Dynamic> empty;
@@ -314,7 +313,8 @@ Ref <MatrixXd> Environment::object_vel_at_time(long int sim_time, string object_
 	int max_index = objects[object_index]->max_point_index;
 	return history[sim_time].points_vel(Eigen::all, Eigen::seq(min_index, max_index));
 
-}double Environment::object_orientation_at_time(long int sim_time, string object_name) {
+}
+double Environment::object_orientation_at_time(long int sim_time, string object_name) {
 
 	if (history.count(sim_time) <= 0 || object_name_to_index.count(object_name) <= 0) {
 		return 0;
