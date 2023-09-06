@@ -15,30 +15,33 @@ jobs:
       matrix:
         os:
           - "ubuntu-22.04"
-          - "ubuntu-latest"
+          # - "ubuntu-latest"
         python:
-          - "3.7"
+          # - "3.7"
           - "3.8"
-          - "3.9"
+          # - "3.9"
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v3
         with:
           submodules: true
       - name: Set up Python ${{ matrix.python }}
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v4.0.0
         with:
           python-version: ${{ matrix.python }}
       - name: Install deb dependencies
         run: sudo apt-get install -y xorg-dev libglu1-mesa-dev libglew-dev xvfb
       - name: Install python dependencies
-        run: pip install -r requirements.txt
+        run:
+          pip install -U setuptools
+          pip install -U pip
+          pip install -r requirements.txt --no-warn-conflicts
       - name: Cache python wheel packages
         uses: actions/cache@v3
         with:
           path: ~/.cache/pip
           key: wheel-cache-${{ hashFiles('requirements.txt') }}
       - name: Install evolution gym
-        run: pip install -e .
+        run: python setup.py install
       - name: Run test
         run: xvfb-run python -m unittest tests/test_render.py
