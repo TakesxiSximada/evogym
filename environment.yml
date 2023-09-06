@@ -7,6 +7,7 @@ dependencies:
   - pip:
     - glfw==1.8.6
     - gpy==1.10.0
+    - git+https://github.com/yunshengtian/neat-python@2762ab630838520ca6c03a866e8a158f592b0370
     - gym==0.22.0
     - h5py==3.6.0
     - imageio==2.14.1
