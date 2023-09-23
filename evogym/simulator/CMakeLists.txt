@@ -19,7 +19,6 @@ endif()
 
 if(UNIX)
   find_package(OpenGL REQUIRED)
-  find_package(GLEW REQUIRED)
 endif()
 
 set(EXTERNAL_ROOT ${PROJECT_SOURCE_DIR}/externals)
