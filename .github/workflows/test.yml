@@ -37,10 +37,12 @@ jobs:
       #     path: ~/.cache/pip
       #     key: wheel-cache-${{ hashFiles('requirements.txt') }}
       - name: Install evolution gym
-        run: python setup.py install
+        run: python3 setup.py install
       - name: Install python dependencies
-        run: pip install -r requirements.txt
+        run: pip3 install -U pip
+      - name: Install python dependencies
+        run: pip3 install -r requirements.txt
       - name: Run test
         run: |
           cd tests
-          xvfb-run python -m unittest test_render.py
+          xvfb-run python3 -m unittest test_render.py
