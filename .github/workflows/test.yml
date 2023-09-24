@@ -39,7 +39,7 @@ jobs:
       - name: Install evolution gym
         run: python3 setup.py install
       - name: Install python dependencies
-        run: pip3 install -U pip
+        run: pip3 install -U pip==23.0.1
       - name: Install python dependencies
         run: pip3 install -r requirements.txt
       - name: Run test
